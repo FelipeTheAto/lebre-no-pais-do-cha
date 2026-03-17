@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand colors - Lebre no País do Chá */
+    --background: 30 77% 69%;          /* #ECAB75 - light orange */
+    --foreground: 200 7% 16%;           /* #25292B - dark charcoal */
+
+    --card: 30 77% 69%;
+    --card-foreground: 200 7% 16%;
+
+    --popover: 30 60% 78%;
+    --popover-foreground: 200 7% 16%;
+
+    --primary: 23 69% 54%;              /* #DB7739 - dark orange */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 252 27% 92%;           /* #E7E4EF - light lavender */
+    --secondary-foreground: 200 7% 16%;
+
+    --muted: 30 40% 60%;
+    --muted-foreground: 200 7% 30%;
+
+    --accent: 0 95% 32%;                /* #9E0505 - deep red */
+    --accent-foreground: 0 0% 100%;
+
+    --olive: 64 43% 29%;                /* #686B2A - olive green */
+    --olive-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 23 40% 45%;
+    --input: 30 40% 60%;
+    --ring: 23 69% 54%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --bg-dark: 200 7% 16%;              /* #25292B */
+    --bg-light: 30 77% 69%;             /* #ECAB75 */
+    --bg-lighter: 30 60% 78%;           /* lighter peach */
+    --color-red: 0 95% 32%;             /* #9E0505 */
+    --color-olive: 64 43% 29%;          /* #686B2A */
+    --color-lavender: 252 27% 92%;      /* #E7E4EF */
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Funnel Display', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Funnel Display', sans-serif;
+  }
+
+  .font-cursive {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 600;
+  }
+}
+
+/* Fluid section divider */
+.fluid-divider {
+  position: relative;
+  margin-top: -1px;
+}
+
+.fluid-divider svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* CTA hover instability */
+.cta-unstable {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cta-unstable:hover {
+  transform: translate(3px, -2px) rotate(-0.5deg);
+  box-shadow: -4px 4px 0 0 hsl(var(--bg-dark) / 0.3);
+}
+
+@layer utilities {
+  .text-shadow-hero {
+    text-shadow: 0 2px 20px hsla(200, 7%, 16%, 0.3);
+  }
+
+  .section-dark {
+    background-color: hsl(var(--bg-dark));
+    color: hsl(var(--color-lavender));
+  }
+
+  .section-light {
+    background-color: hsl(var(--bg-light));
+    color: hsl(var(--foreground));
+  }
+
+  .section-lighter {
+    background-color: hsl(var(--bg-lighter));
+    color: hsl(var(--foreground));
+  }
+
+  .section-lavender {
+    background-color: hsl(var(--color-lavender));
+    color: hsl(var(--foreground));
+  }
+
+  .gradient-brand {
+    background: linear-gradient(135deg, hsl(var(--bg-light)), hsl(var(--primary)));
+  }
+
+  .text-red-brand {
+    color: hsl(var(--color-red));
+  }
+
+  .text-olive-brand {
+    color: hsl(var(--color-olive));
+  }
+
+  .bg-red-brand {
+    background-color: hsl(var(--color-red));
+  }
+
+  .bg-olive-brand {
+    background-color: hsl(var(--color-olive));
+  }
+}
