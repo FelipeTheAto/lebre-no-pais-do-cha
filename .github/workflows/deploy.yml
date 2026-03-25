@@ -1,0 +1,56 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to deploy branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Fetch deploy branch
+          git fetch origin deploy
+
+          # Create a temporary working directory
+          tmp_dir=$(mktemp -d)
+
+          # Copy build output
+          cp -r dist/* "$tmp_dir/"
+
+          # Add .htaccess for SPA routing
+          printf '<IfModule mod_rewrite.c>\n  RewriteEngine On\n  RewriteBase /\n  RewriteRule ^index\\.html$ - [L]\n  RewriteCond %%{REQUEST_FILENAME} !-f\n  RewriteCond %%{REQUEST_FILENAME} !-d\n  RewriteRule . /index.html [L]\n</IfModule>\n' > "$tmp_dir/.htaccess"
+
+          # Switch to deploy branch
+          git checkout origin/deploy -B deploy
+
+          # Remove old files (except .git)
+          git rm -rf . || true
+
+          # Copy new files
+          cp -r "$tmp_dir"/. .
+
+          # Stage and commit
+          git add -A
+          git diff --cached --quiet && echo "No changes to deploy" && exit 0
+          git commit -m "Deploy: build from ${GITHUB_SHA::7}"
+          git push origin deploy
