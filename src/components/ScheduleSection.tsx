@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { MapPin, Clock, GraduationCap } from "lucide-react";
 
 const openShows = [
-  { city: "Cascavel", venue: "Teatro Municipal Sefrin Filho", date: "17 Abr.", time: "20h", link: "#" },
-  { city: "Toledo", venue: "Teatro Municipal de Toledo", date: "29 Abr.", time: "20h", link: "#" },
-  { city: "Medianeira", venue: "Centro Popular de Cultura Arandurá (CPC Arandurá)", date: "08 Mai.", time: "20h", link: "#" },
+  { city: "Cascavel", venue: "Teatro Municipal Sefrin Filho", date: "17 Abr.", time: "20h", link: "https://parallela.art.br/evento/lebre/" },
+  { city: "Toledo", venue: "Teatro Municipal de Toledo", date: "29 Abr.", time: "20h", link: "https://parallela.art.br/evento/lebre/" },
+  { city: "Medianeira", venue: "Centro Popular de Cultura Arandurá (CPC Arandurá)", date: "08 Mai.", time: "20h", link: "https://parallela.art.br/evento/lebre/" },
 ];
 
 const studentShows = [
@@ -65,6 +65,8 @@ const ScheduleSection = () => {
               </div>
               <a
                 href={show.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-unstable inline-flex items-center justify-center px-5 py-3 bg-accent text-accent-foreground font-display font-bold text-xs sm:text-sm uppercase tracking-wider rounded-sm w-full sm:w-auto md:min-w-[200px] text-center"
               >
                 Garantir Minha Vaga
