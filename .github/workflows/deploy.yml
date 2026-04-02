@@ -40,6 +40,9 @@ jobs:
           # Add .htaccess for SPA routing
           printf '<IfModule mod_rewrite.c>\n  RewriteEngine On\n  RewriteBase /\n  RewriteRule ^index\\.html$ - [L]\n  RewriteCond %%{REQUEST_FILENAME} !-f\n  RewriteCond %%{REQUEST_FILENAME} !-d\n  RewriteRule . /index.html [L]\n</IfModule>\n' > "$tmp_dir/.htaccess"
 
+          # Clean build artifacts before switching branches
+          rm -rf dist
+
           # Switch to deploy branch
           git checkout origin/deploy -B deploy
 
