@@ -4,6 +4,9 @@ on:
   push:
     branches: [master]
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -40,16 +43,18 @@ jobs:
           # Add .htaccess for SPA routing
           printf '<IfModule mod_rewrite.c>\n  RewriteEngine On\n  RewriteBase /\n  RewriteRule ^index\\.html$ - [L]\n  RewriteCond %%{REQUEST_FILENAME} !-f\n  RewriteCond %%{REQUEST_FILENAME} !-d\n  RewriteRule . /index.html [L]\n</IfModule>\n' > "$tmp_dir/.htaccess"
 
-          # Clean build artifacts before switching branches
-          rm -rf dist
+          # Clean working directory before switching branches
+          git clean -fd
+          git checkout -- .
 
           # Switch to deploy branch
           git checkout origin/deploy -B deploy
 
           # Remove old files (except .git)
           git rm -rf . || true
+          git clean -fd
 
-          # Copy new files
+          # Copy new build output only
           cp -r "$tmp_dir"/. .
 
           # Stage and commit
