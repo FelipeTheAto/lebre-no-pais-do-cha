@@ -4,11 +4,9 @@ import { MapPin, Clock, GraduationCap } from "lucide-react";
 const openShows = [
   { city: "Cascavel", venue: "Teatro Municipal Sefrin Filho", date: "17 Abr.", time: "20h", link: "https://parallela.art.br/evento/lebre/" },
   { city: "Toledo", venue: "Teatro Municipal de Toledo", date: "29 Abr.", time: "20h", link: "https://parallela.art.br/evento/lebre/" },
-  { city: "Medianeira", venue: "Centro Popular de Cultura Arandurá (CPC Arandurá)", date: "08 Mai.", time: "20h", link: "https://parallela.art.br/evento/lebre/" },
 ];
 
 const studentShows = [
-  { city: "Cascavel", venue: "Teatro Municipal Sefrin Filho", date: "17 Abr.", time: "10h" },
   { city: "Ouro Verde do Oeste", venue: "Teatro Ouro Verde", date: "24 Abr.", time: "14h" },
   { city: "Toledo", venue: "Teatro Municipal de Toledo", date: "30 Abr.", time: "10h" },
   { city: "Medianeira", venue: "Centro Popular de Cultura Arandurá (CPC Arandurá)", date: "08 Mai.", time: "14h" },
