@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { MapPin, Clock, GraduationCap } from "lucide-react";
 
 const openShows = [
-  { city: "Cascavel", venue: "Teatro Municipal Sefrin Filho", date: "17 Abr.", time: "20h", link: "https://parallela.art.br/evento/lebre/" },
-  { city: "Toledo", venue: "Teatro Municipal de Toledo", date: "29 Abr.", time: "20h", link: "https://parallela.art.br/evento/lebre/" },
+  { city: "Cascavel", venue: "Teatro Municipal Sefrin Filho", date: "17 Abr.", time: "19h30", link: "https://parallela.art.br/evento/lebre/" },
+  { city: "Toledo", venue: "Teatro Municipal de Toledo", date: "29 Abr.", time: "19h30", link: "https://parallela.art.br/evento/lebre/" },
 ];
 
 const studentShows = [
