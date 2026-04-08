@@ -65,6 +65,7 @@ const ScheduleSection = () => {
                 href={show.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => { if (typeof fbq === 'function') fbq('track', 'InitiateCheckout'); }}
                 className="cta-unstable inline-flex items-center justify-center px-5 py-3 bg-accent text-accent-foreground font-display font-bold text-xs sm:text-sm uppercase tracking-wider rounded-sm w-full sm:w-auto md:min-w-[200px] text-center"
               >
                 Garantir Minha Vaga

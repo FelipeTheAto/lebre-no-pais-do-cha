@@ -58,6 +58,7 @@ const HeroSection = () => {
                 href="https://parallela.art.br/evento/lebre/"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => { if (typeof fbq === 'function') fbq('track', 'InitiateCheckout'); }}
                 className="cta-unstable inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 bg-accent text-accent-foreground font-display font-bold text-sm md:text-lg uppercase tracking-wider rounded-sm w-full sm:w-auto text-center">
 
                 Garantir Minha Vaga Gratuita
