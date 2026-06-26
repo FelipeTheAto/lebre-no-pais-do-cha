@@ -2,14 +2,15 @@ import { motion } from "framer-motion";
 import { MapPin, Clock, GraduationCap } from "lucide-react";
 
 const openShows = [
-  { city: "Cascavel", venue: "Teatro Municipal Sefrin Filho", date: "17 Abr.", time: "19h30", link: "https://parallela.art.br/evento/lebre/" },
-  { city: "Toledo", venue: "Teatro Municipal de Toledo", date: "29 Abr.", time: "19h30", link: "https://parallela.art.br/evento/lebre/" },
+  { city: "Cascavel", venue: "Teatro Municipal Sefrin Filho", date: "17 Abr.", time: "19h30", link: "https://parallela.art.br/evento/lebre/", past: true },
+  { city: "Toledo", venue: "Teatro Municipal de Toledo", date: "29 Abr.", time: "19h30", link: "https://parallela.art.br/evento/lebre/", past: true },
+  { city: "Cascavel", venue: "Centro Cultural Gilberto Mayer", date: "01 Jul.", time: "19h30", link: "https://parallela.art.br/evento/lebre/" },
+  { city: "Anahy", venue: "Salão Paroquial de Anahy", date: "10 Jul.", time: "19h30", link: "https://parallela.art.br/evento/lebre/" },
 ];
 
 const studentShows = [
-  { city: "Ouro Verde do Oeste", venue: "Teatro Ouro Verde", date: "24 Abr.", time: "14h" },
   { city: "Toledo", venue: "Teatro Municipal de Toledo", date: "30 Abr.", time: "10h" },
-  { city: "Medianeira", venue: "Centro Popular de Cultura Arandurá (CPC Arandurá)", date: "08 Mai.", time: "14h" },
+  { city: "Medianeira", venue: "Centro Popular de Cultura Arandurá (CPC Arandurá)", date: "09 Jul.", time: "14h" },
 ];
 
 const ScheduleSection = () => {
@@ -41,14 +42,14 @@ const ScheduleSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 md:p-8 rounded-sm border border-brand-lavender/10 hover:border-primary/40 transition-colors duration-300 group"
+              className={`flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 md:p-8 rounded-sm border border-brand-lavender/10 transition-colors duration-300 group ${show.past ? "opacity-60" : "hover:border-primary/40"}`}
             >
               <div className="flex items-center gap-4 sm:gap-6">
-                <div className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-primary whitespace-nowrap">
+                <div className={`font-display text-2xl sm:text-3xl md:text-4xl font-bold whitespace-nowrap ${show.past ? "text-brand-lavender/40" : "text-primary"}`}>
                   {show.date}
                 </div>
                 <div>
-                  <h3 className="font-display text-xl font-bold text-brand-lavender group-hover:text-primary transition-colors">
+                  <h3 className={`font-display text-xl font-bold text-brand-lavender transition-colors ${show.past ? "" : "group-hover:text-primary"}`}>
                     {show.city}
                   </h3>
                   <p className="flex items-center gap-2 text-brand-lavender/60 text-sm mt-1">
@@ -61,15 +62,21 @@ const ScheduleSection = () => {
                   </p>
                 </div>
               </div>
-              <a
-                href={show.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => { if (typeof fbq === 'function') fbq('track', 'InitiateCheckout'); }}
-                className="cta-unstable inline-flex items-center justify-center px-5 py-3 bg-accent text-accent-foreground font-display font-bold text-xs sm:text-sm uppercase tracking-wider rounded-sm w-full sm:w-auto md:min-w-[200px] text-center"
-              >
-                Garantir Minha Vaga
-              </a>
+              {show.past ? (
+                <span className="inline-flex items-center justify-center px-5 py-3 bg-brand-lavender/10 text-brand-lavender/40 font-display font-bold text-xs sm:text-sm uppercase tracking-wider rounded-sm w-full sm:w-auto md:min-w-[200px] text-center cursor-default select-none">
+                  Sessão encerrada
+                </span>
+              ) : (
+                <a
+                  href={show.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => { if (typeof fbq === 'function') fbq('track', 'InitiateCheckout'); }}
+                  className="cta-unstable inline-flex items-center justify-center px-5 py-3 bg-accent text-accent-foreground font-display font-bold text-xs sm:text-sm uppercase tracking-wider rounded-sm w-full sm:w-auto md:min-w-[200px] text-center"
+                >
+                  Garantir Minha Vaga
+                </a>
+              )}
             </motion.div>
           ))}
         </div>
