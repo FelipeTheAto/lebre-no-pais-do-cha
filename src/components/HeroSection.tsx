@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import fundo01 from "@/assets/fundo-01.png";
-import lebre01 from "@/assets/lebre-01.png";
+import Img from "@/components/Img";
+import { midia } from "@/config/midia";
 
 const HeroSection = () => {
   return (
@@ -76,14 +77,7 @@ const HeroSection = () => {
             transition={{ delay: 0.6, duration: 1 }}
             className="lg:col-span-5 relative flex justify-center lg:justify-end z-20 lg:order-last">
 
-            <img
-              alt="Lebre de Março — personagem principal do espetáculo"
-              className="w-[280px] sm:w-[400px] md:w-[560px] lg:w-[840px] h-auto object-cover"
-              style={{
-                transform: 'rotate(2deg)',
-                mixBlendMode: 'multiply',
-                background: 'transparent'
-              }} src="/lovable-uploads/7174d72d-3fb9-4a58-a440-0d453f0c3c3f.png" />
+            <Img conf={midia.heroLebre} />
 
           </motion.div>
         </div>

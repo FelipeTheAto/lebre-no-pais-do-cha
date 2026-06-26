@@ -1,22 +1,22 @@
 import { motion } from "framer-motion";
-import lebre05 from "@/assets/lebre-05.png";
 import xicaras01 from "@/assets/xicaras-01.png";
-import xicaras02 from "@/assets/xicaras-02.png";
-import xicaras03 from "@/assets/xicaras-03.png";
+import Img from "@/components/Img";
+import { midia } from "@/config/midia";
 
+// Os ícones de cada destaque vêm do painel (src/config/midia.ts → highlightIcone1/2/3).
 const highlights = [
 {
-  image: xicaras01,
+  conf: midia.highlightIcone1,
   title: "A Identificação",
   text: "Veja como as amizades podem se tornar espaços de abuso, impactando sua personalidade de forma devastadora."
 },
 {
-  image: xicaras02,
+  conf: midia.highlightIcone2,
   title: "A Ponte para a Realidade",
   text: "Rodas de conversa após as sessões com especialistas em saúde mental para transformar a metáfora em ferramenta prática."
 },
 {
-  image: xicaras03,
+  conf: midia.highlightIcone3,
   title: "Sua Voz de Volta",
   text: "Identifique dinâmicas de poder e retome o controle da sua própria história."
 }];
@@ -55,10 +55,7 @@ const MentalHealthSection = () => {
             viewport={{ once: true }}
             className="lg:col-span-5 flex justify-center lg:justify-start">
 
-            <img
-              alt="Lebre de Março em perfil — personagem fragmentada"
-              className="w-[220px] sm:w-[300px] md:w-[380px] lg:w-[440px] h-auto"
-              style={{ transform: 'rotate(-3deg)', mixBlendMode: 'multiply', background: 'transparent' }} src="/lovable-uploads/7619bc6b-830e-4fa6-95c6-91aaff0a10a4.png" />
+            <Img conf={midia.mentalLebre} />
 
           </motion.div>
 
@@ -86,12 +83,7 @@ const MentalHealthSection = () => {
                 style={{ marginLeft: i > 0 ? `${i * 1.2}rem` : '0' }}>
 
                   <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20">
-                    <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-contain"
-                    style={{ mixBlendMode: 'multiply', background: 'transparent' }} />
-
+                    <Img conf={item.conf} />
                   </div>
                   <div>
                     <h3 className="font-display text-base sm:text-lg font-bold mb-1 text-foreground">{item.title}</h3>
@@ -102,6 +94,18 @@ const MentalHealthSection = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* FOTO REAL — Seção 4. Controle a imagem no painel: src/config/midia.ts → "fotoSecao4".
+            Aqui só fica o espaçamento/largura do bloco (mt-* = espaço acima · max-w-* = largura). */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-14 md:mt-20 max-w-4xl mx-auto">
+
+          <Img conf={midia.fotoSecao4} />
+
+        </motion.div>
       </div>
     </section>);
 

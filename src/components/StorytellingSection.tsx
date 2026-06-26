@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import posterVertical from "@/assets/poster-vertical.jpg";
+import Img from "@/components/Img";
+import { midia } from "@/config/midia";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -77,16 +78,22 @@ const StorytellingSection = () => {
             className="relative">
 
             <div className="relative overflow-hidden">
-              <img
-
-                alt="Poster do espetáculo Lebre no País do Chá"
-                className="w-full h-auto"
-                loading="lazy"
-                style={{ mixBlendMode: 'multiply', background: 'transparent' }} src="/lovable-uploads/f43365b1-a9ab-4465-9c6b-d59fb37c6b94.png" />
-
+              <Img conf={midia.storyPoster} />
             </div>
           </motion.div>
         </div>
+
+        {/* FOTO REAL — Seção 2. Controle a imagem no painel: src/config/midia.ts → "fotoSecao2".
+            Aqui só fica o espaçamento/largura do bloco (mt-* = espaço acima · max-w-* = largura). */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 md:mt-16 max-w-3xl mx-auto">
+
+          <Img conf={midia.fotoSecao2} />
+
+        </motion.div>
       </div>
     </section>);
 
