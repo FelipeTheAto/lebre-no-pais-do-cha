@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import xicaras01 from "@/assets/xicaras-01.png";
 import Img from "@/components/Img";
+import FotoFaixa from "@/components/FotoFaixa";
 import { midia } from "@/config/midia";
 
 // Os ícones de cada destaque vêm do painel (src/config/midia.ts → highlightIcone1/2/3).
@@ -94,19 +95,10 @@ const MentalHealthSection = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* FOTO REAL — Seção 4. Controle a imagem no painel: src/config/midia.ts → "fotoSecao4".
-            Aqui só fica o espaçamento/largura do bloco (mt-* = espaço acima · max-w-* = largura). */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-14 md:mt-20 max-w-4xl mx-auto">
-
-          <Img conf={midia.fotoSecao4} />
-
-        </motion.div>
       </div>
+
+      {/* FOTO REAL EM FAIXA — Seção 4 (borda a borda). Imagem no painel: midia.ts → "fotoSecao4". */}
+      <FotoFaixa conf={midia.fotoSecao4} corFusao="hsl(30,60%,78%)" />
     </section>);
 
 };

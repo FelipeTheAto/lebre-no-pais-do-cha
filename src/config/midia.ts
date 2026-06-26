@@ -31,9 +31,6 @@ import type { CSSProperties } from "react";
 import xicaras01 from "@/assets/xicaras-01.png";
 import xicaras02 from "@/assets/xicaras-02.png";
 import xicaras03 from "@/assets/xicaras-03.png";
-import fotoStoryPlaceholder from "@/assets/hero-stage.jpg";
-import fotoMentalPlaceholder from "@/assets/roda-conversa.jpg";
-import fotoAuthorityPlaceholder from "@/assets/hero-poster.jpg";
 
 export type ImgConf = {
   mostrar: boolean;
@@ -56,16 +53,18 @@ export const midia = {
   // ─── SEÇÃO 2 · STORYTELLING ───────────────────────────────────────
   storyPoster: {
     mostrar: true,
-    src: "/lovable-uploads/f43365b1-a9ab-4465-9c6b-d59fb37c6b94.png",
-    alt: "Pôster do espetáculo Lebre no País do Chá",
-    classe: "w-full h-auto",
-    estilo: { mixBlendMode: "multiply", background: "transparent" },
+    src: "/fotos/secao-2.jpg",
+    alt: "Foto do espetáculo Lebre no País do Chá",
+    classe: "w-full h-auto object-contain object-center rounded-none shadow-lg",
+    estilo: {mixBlendMode: "normal"}
   },
+  // FAIXA full-bleed (borda a borda) — renderizada por <FotoFaixa> na Seção 2.
+  // Sem rounded/shadow/max-w de propósito: numa faixa eles voltam a virar "quadro".
   fotoSecao2: {
     mostrar: true,
-    src: fotoStoryPlaceholder, // troque por "/fotos/secao-2.jpg"
+    src: "/fotos/secao-2.jpg",
     alt: "Cena do espetáculo Lebre no País do Chá",
-    classe: "w-full h-[420px] object-cover object-center rounded-2xl shadow-lg",
+    classe: "w-full h-[460px] md:h-[640px] object-cover object-center",
   },
 
   // ─── SEÇÃO 4 · SAÚDE MENTAL ───────────────────────────────────────
@@ -97,18 +96,20 @@ export const midia = {
     classe: "w-full h-full object-contain",
     estilo: { mixBlendMode: "multiply", background: "transparent" },
   },
+  // FAIXA full-bleed — renderizada por <FotoFaixa> na Seção 4.
   fotoSecao4: {
     mostrar: true,
-    src: fotoMentalPlaceholder, // troque por "/fotos/secao-4.jpg"
+    src: "/fotos/secao-4.jpg",
     alt: "Roda de conversa após o espetáculo Lebre no País do Chá",
-    classe: "w-full h-[460px] object-cover object-center rounded-2xl shadow-lg",
+    classe: "w-full h-[460px] md:h-[640px] object-cover object-center",
   },
 
   // ─── SEÇÃO 5 · DA TERAPIA PARA OS PALCOS ──────────────────────────
+  // FAIXA full-bleed — renderizada por <FotoFaixa> na Seção 5.
   fotoSecao5: {
     mostrar: true,
-    src: fotoAuthorityPlaceholder, // troque por "/fotos/secao-5.jpg"
+    src: "/fotos/secao-5.jpg",
     alt: "Luiza Barbosa em cena no espetáculo Lebre no País do Chá",
-    classe: "w-full h-[400px] object-cover object-center rounded-2xl shadow-lg",
+    classe: "w-full h-[400px] md:h-[600px] object-cover object-center",
   },
 } satisfies Record<string, ImgConf>;

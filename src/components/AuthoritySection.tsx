@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Img from "@/components/Img";
+import FotoFaixa from "@/components/FotoFaixa";
 import { midia } from "@/config/midia";
 
 const AuthoritySection = () => {
@@ -30,20 +30,11 @@ const AuthoritySection = () => {
               "Por trás de cada fala, há uma história."
             </p>
           </motion.div>
-
-          {/* FOTO REAL — Seção 5. Controle a imagem no painel: src/config/midia.ts → "fotoSecao5".
-              Aqui só fica o espaçamento do bloco (mt-* = espaço acima). */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-10 md:mt-14">
-
-            <Img conf={midia.fotoSecao5} />
-
-          </motion.div>
         </div>
       </div>
+
+      {/* FOTO REAL EM FAIXA — Seção 5 (borda a borda). Imagem no painel: midia.ts → "fotoSecao5". */}
+      <FotoFaixa conf={midia.fotoSecao5} corFusao="hsl(252,27%,88%)" />
     </section>);
 
 };

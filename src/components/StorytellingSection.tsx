@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Img from "@/components/Img";
+import FotoFaixa from "@/components/FotoFaixa";
 import { midia } from "@/config/midia";
 
 const fadeInUp = {
@@ -82,19 +83,11 @@ const StorytellingSection = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* FOTO REAL — Seção 2. Controle a imagem no painel: src/config/midia.ts → "fotoSecao2".
-            Aqui só fica o espaçamento/largura do bloco (mt-* = espaço acima · max-w-* = largura). */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12 md:mt-16 max-w-3xl mx-auto">
-
-          <Img conf={midia.fotoSecao2} />
-
-        </motion.div>
       </div>
+
+      {/* FOTO REAL EM FAIXA — Seção 2 (borda a borda). Imagem no painel: midia.ts → "fotoSecao2".
+          corFusao = cor desta seção pras pontas fundirem (fundo de baixo da Storytelling). */}
+      <FotoFaixa conf={midia.fotoSecao2} corFusao="hsl(30,77%,69%)" />
     </section>);
 
 };
