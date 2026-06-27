@@ -20,9 +20,9 @@ const Index = () => {
       <PersonificationSection />
       <FluidDivider fromColor="hsl(200,7%,16%)" toColor="hsl(30,77%,69%)" variant="drip" />
       <MentalHealthSection />
-      <FluidDivider fromColor="hsl(30,60%,78%)" toColor="hsl(252,27%,92%)" variant="wave" />
+      <FluidDivider fromColor="hsl(30,60%,78%)" toColor="hsl(252,15%,12%)" variant="wave" />
       <AuthoritySection />
-      <FluidDivider fromColor="hsl(252,27%,88%)" toColor="hsl(200,7%,16%)" variant="blob" />
+      <FluidDivider fromColor="hsl(252,15%,12%)" toColor="hsl(200,7%,16%)" variant="blob" />
       <ScheduleSection />
       <FluidDivider fromColor="hsl(200,7%,20%)" toColor="hsl(30,60%,78%)" variant="drip" />
       <FAQSection />

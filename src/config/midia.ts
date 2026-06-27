@@ -38,6 +38,9 @@ export type ImgConf = {
   alt: string;
   classe: string;
   estilo?: CSSProperties;
+  // Só pras fotos usadas como FUNDO INTEGRADO (<FundoFoto>): o degradê escuro
+  // por cima da imagem. Mais opaco = texto mais legível; menos opaco = imagem mais visível.
+  scrim?: string;
 };
 
 export const midia = {
@@ -105,11 +108,14 @@ export const midia = {
   },
 
   // ─── SEÇÃO 5 · DA TERAPIA PARA OS PALCOS ──────────────────────────
-  // FAIXA full-bleed — renderizada por <FotoFaixa> na Seção 5.
+  // FUNDO INTEGRADO — renderizada por <FundoFoto> na Seção 5 (atrás do texto).
+  //   classe → object-position: troque object-center por object-top / object-[50%_30%] pra mover o recorte.
+  //   scrim  → degradê escuro por cima. As paradas "rgba(...)" controlam onde escurece (texto) e onde clareia (imagem).
   fotoSecao5: {
     mostrar: true,
     src: "/fotos/secao-5.jpg",
     alt: "Luiza Barbosa em cena no espetáculo Lebre no País do Chá",
-    classe: "w-full h-[400px] md:h-[600px] object-cover object-center",
+    classe: "object-cover object-center",
+    scrim: "linear-gradient(180deg, rgba(15,14,18,0.92) 0%, rgba(15,14,18,0.66) 46%, rgba(15,14,18,0.90) 100%)",
   },
 } satisfies Record<string, ImgConf>;
