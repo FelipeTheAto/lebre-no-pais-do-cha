@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import Img from "@/components/Img";
-import FotoFaixa from "@/components/FotoFaixa";
+import FundoFoto from "@/components/FundoFoto";
 import { midia } from "@/config/midia";
 
 const fadeInUp = {
@@ -10,24 +9,27 @@ const fadeInUp = {
 
 const StorytellingSection = () => {
   return (
-    <section className="py-16 md:py-32 overflow-hidden bg-gradient-to-b from-[hsl(30,60%,78%)] to-[hsl(30,77%,69%)]">
-      <div className="container mx-auto px-4 sm:px-6 md:px-12">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeInUp}
-          className="mb-10 md:mb-16">
+    <section className="relative overflow-hidden py-20 md:py-40 bg-[hsl(252,15%,12%)]">
+      {/* Foto integrada de fundo + scrim (painel: midia.ts → "fotoSecao2") */}
+      <FundoFoto conf={midia.fotoSecao2} />
 
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mb-4 text-foreground">
-            Você conhece a <span className="font-cursive text-primary text-3xl sm:text-4xl md:text-5xl font-extrabold">história</span>.
-          </h2>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-brand-red">
-            Mas nunca a viu por este <span className="font-cursive text-3xl sm:text-4xl md:text-5xl font-extrabold">ângulo</span>.
-          </h2>
-        </motion.div>
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-12">
+        <div className="ml-auto max-w-xl lg:max-w-2xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="mb-8 md:mb-12">
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-start">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mb-4 text-brand-lavender">
+              Você conhece a <span className="font-cursive text-primary text-3xl sm:text-4xl md:text-5xl font-extrabold">história</span>.
+            </h2>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-brand-red">
+              Mas nunca a viu por este <span className="font-cursive text-3xl sm:text-4xl md:text-5xl font-extrabold">ângulo</span>.
+            </h2>
+          </motion.div>
+
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -35,7 +37,7 @@ const StorytellingSection = () => {
             variants={fadeInUp}
             className="space-y-8">
 
-            <p className="text-base md:text-lg leading-relaxed text-foreground/80">
+            <p className="text-base md:text-lg leading-relaxed text-brand-lavender/85">
               No clássico, a Lebre de Março é apenas uma convidada <span className="font-cursive text-xl font-extrabold">excêntrica</span>. Aqui, ela assume o centro do palco para revelar o que acontece nos bastidores de uma relação <span className="font-cursive text-brand-red">tóxica</span>.
             </p>
 
@@ -62,32 +64,16 @@ const StorytellingSection = () => {
                 transition={{ delay: i * 0.2 }}
                 className="border-l-4 border-brand-red pl-6 py-2">
 
-                  <h3 className="font-display text-xl font-bold mb-2 text-foreground">
+                  <h3 className="font-display text-xl font-bold mb-2 text-brand-lavender">
                     {item.title}
                   </h3>
-                  <p className="text-foreground/70 leading-relaxed">{item.text}</p>
+                  <p className="text-brand-lavender/70 leading-relaxed">{item.text}</p>
                 </motion.div>
               )}
             </div>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative">
-
-            <div className="relative overflow-hidden">
-              <Img conf={midia.storyPoster} />
-            </div>
-          </motion.div>
         </div>
       </div>
-
-      {/* FOTO REAL EM FAIXA — Seção 2 (borda a borda). Imagem no painel: midia.ts → "fotoSecao2".
-          corFusao = cor desta seção pras pontas fundirem (fundo de baixo da Storytelling). */}
-      <FotoFaixa conf={midia.fotoSecao2} corFusao="hsl(30,77%,69%)" />
     </section>);
 
 };

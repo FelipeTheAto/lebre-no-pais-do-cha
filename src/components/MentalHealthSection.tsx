@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import xicaras01 from "@/assets/xicaras-01.png";
 import Img from "@/components/Img";
-import FotoFaixa from "@/components/FotoFaixa";
+import FundoFoto from "@/components/FundoFoto";
 import { midia } from "@/config/midia";
 
 // Os ícones de cada destaque vêm do painel (src/config/midia.ts → highlightIcone1/2/3).
@@ -25,13 +24,11 @@ const highlights = [
 
 const MentalHealthSection = () => {
   return (
-    <section className="relative py-16 md:py-32 bg-gradient-to-b from-[hsl(30,77%,69%)] via-[hsl(30,70%,72%)] to-[hsl(30,60%,78%)] overflow-hidden">
-      {/* Decorative teacup backgrounds — hidden on small screens */}
-      <img src={xicaras01} alt="" className="absolute top-12 right-[6%] w-28 md:w-40 opacity-10 rotate-12 pointer-events-none select-none hidden sm:block" style={{ mixBlendMode: 'multiply', background: 'transparent' }} />
-      <img src={xicaras01} alt="" className="absolute bottom-16 left-[4%] w-24 md:w-32 opacity-[0.07] -rotate-[20deg] pointer-events-none select-none hidden md:block" style={{ mixBlendMode: 'multiply', background: 'transparent' }} />
-      <img src={xicaras01} alt="" className="absolute top-1/2 right-[2%] w-20 md:w-28 opacity-[0.06] rotate-[30deg] pointer-events-none select-none hidden md:block" style={{ mixBlendMode: 'multiply', background: 'transparent' }} />
+    <section className="relative overflow-hidden py-20 md:py-40 bg-[hsl(252,15%,12%)]">
+      {/* Foto integrada à esquerda (no lugar da Lebre) + scrim escurecendo o lado do texto */}
+      <FundoFoto conf={midia.fotoSecao4} />
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 relative z-10">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -39,7 +36,7 @@ const MentalHealthSection = () => {
           viewport={{ once: true }}
           className="max-w-4xl mb-10 md:mb-14 ml-auto text-left sm:text-right">
 
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold leading-tight text-foreground">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold leading-tight text-brand-lavender">
             Não engula o que te <span className="font-cursive text-brand-red">consome</span>:
             <br className="hidden md:block" />
             aprenda a se levantar da mesa antes que o{" "}
@@ -47,27 +44,17 @@ const MentalHealthSection = () => {
           </h2>
         </motion.div>
 
-        {/* Layout: Lebre left + text right */}
+        {/* Coluna esquerda vazia (mostra a foto) + texto/destaques à direita */}
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-start">
-          {/* Lebre-05 — large, left */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-5 flex justify-center lg:justify-start">
+          <div className="hidden lg:block lg:col-span-5" />
 
-            <Img conf={midia.mentalLebre} />
-
-          </motion.div>
-
-          {/* Text + highlights — right */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="lg:col-span-7">
 
-            <p className="text-base md:text-xl text-foreground/85 leading-relaxed mb-8 md:mb-10">
+            <p className="text-base md:text-xl text-brand-lavender/85 leading-relaxed mb-8 md:mb-10">
               Na nossa história, a <span className="font-cursive text-lg md:text-xl font-extrabold">Lebre de Março</span> foi expulsa da mesa do Chapeleiro e buscou refúgio em uma amizade perigosa com a <span className="font-cursive text-brand-red">Rainha de Copas</span>. O que parecia acolhimento revelou-se um jogo de <span className="font-cursive">controle</span> e manipulação emocional. A cena dá nome ao peso que você carrega em silêncio; a roda de conversa oferece o fôlego necessário para você aprender a <span className="font-cursive">soltá-lo</span>.
             </p>
 
@@ -87,8 +74,8 @@ const MentalHealthSection = () => {
                     <Img conf={item.conf} />
                   </div>
                   <div>
-                    <h3 className="font-display text-base sm:text-lg font-bold mb-1 text-foreground">{item.title}</h3>
-                    <p className="text-foreground/70 leading-relaxed text-sm sm:text-base">{item.text}</p>
+                    <h3 className="font-display text-base sm:text-lg font-bold mb-1 text-brand-lavender">{item.title}</h3>
+                    <p className="text-brand-lavender/70 leading-relaxed text-sm sm:text-base">{item.text}</p>
                   </div>
                 </motion.div>
               )}
@@ -96,9 +83,6 @@ const MentalHealthSection = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* FOTO REAL EM FAIXA — Seção 4 (borda a borda). Imagem no painel: midia.ts → "fotoSecao4". */}
-      <FotoFaixa conf={midia.fotoSecao4} corFusao="hsl(30,60%,78%)" />
     </section>);
 
 };

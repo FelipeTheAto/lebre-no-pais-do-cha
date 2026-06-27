@@ -14,13 +14,13 @@ const Index = () => {
     <main>
       <Navbar />
       <HeroSection />
-      <FluidDivider fromColor="hsl(200,7%,16%)" toColor="hsl(30,60%,78%)" variant="wave" />
+      <FluidDivider fromColor="hsl(200,7%,16%)" toColor="hsl(252,15%,12%)" variant="wave" />
       <StorytellingSection />
-      <FluidDivider fromColor="hsl(30,77%,69%)" toColor="hsl(200,7%,16%)" variant="blob" />
+      <FluidDivider fromColor="hsl(252,15%,12%)" toColor="hsl(200,7%,16%)" variant="blob" />
       <PersonificationSection />
-      <FluidDivider fromColor="hsl(200,7%,16%)" toColor="hsl(30,77%,69%)" variant="drip" />
+      <FluidDivider fromColor="hsl(200,7%,16%)" toColor="hsl(252,15%,12%)" variant="drip" />
       <MentalHealthSection />
-      <FluidDivider fromColor="hsl(30,60%,78%)" toColor="hsl(252,15%,12%)" variant="wave" />
+      <FluidDivider fromColor="hsl(252,15%,12%)" toColor="hsl(252,15%,12%)" variant="wave" />
       <AuthoritySection />
       <FluidDivider fromColor="hsl(252,15%,12%)" toColor="hsl(200,7%,16%)" variant="blob" />
       <ScheduleSection />
