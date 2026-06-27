@@ -11,6 +11,9 @@ node_modules
 dist-ssr
 *.local
 
+# Fotos originais pesadas (backup local — não vão pro git nem pro deploy)
+.fotos-originais-backup/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
