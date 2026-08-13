@@ -10,7 +10,7 @@ const openShows = [
 
 const studentShows = [
   { city: "Toledo", venue: "Teatro Municipal de Toledo", date: "30 Abr.", time: "10h" },
-  { city: "Medianeira", venue: "Centro Popular de Cultura Arandurá (CPC Arandurá)", date: "09 Jul.", time: "14h" },
+  { city: "Medianeira", venue: "Colégio Estadual João Manoel Mondrone", date: "10 Ago.", time: "10h15" },
 ];
 
 const ScheduleSection = () => {
