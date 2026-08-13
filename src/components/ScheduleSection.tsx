@@ -4,8 +4,8 @@ import { MapPin, Clock, GraduationCap } from "lucide-react";
 const openShows = [
   { city: "Cascavel", venue: "Teatro Municipal Sefrin Filho", date: "17 Abr.", time: "19h30", link: "https://parallela.art.br/evento/lebre/", past: true },
   { city: "Toledo", venue: "Teatro Municipal de Toledo", date: "29 Abr.", time: "19h30", link: "https://parallela.art.br/evento/lebre/", past: true },
-  { city: "Cascavel", venue: "Centro Cultural Gilberto Mayer", date: "01 Jul.", time: "19h30", link: "https://parallela.art.br/evento/lebre/" },
-  { city: "Anahy", venue: "Salão Paroquial de Anahy", date: "10 Jul.", time: "19h30", link: "https://parallela.art.br/evento/lebre/" },
+  { city: "Cascavel", venue: "Centro Cultural Gilberto Mayer", date: "01 Jul.", time: "19h30", link: "https://parallela.art.br/evento/lebre/", past: true },
+  { city: "Anahy", venue: "Salão Paroquial de Anahy", date: "10 Jul.", time: "19h30", link: "https://parallela.art.br/evento/lebre/", past: true },
 ];
 
 const studentShows = [
